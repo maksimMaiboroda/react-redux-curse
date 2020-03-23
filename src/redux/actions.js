@@ -4,7 +4,8 @@ import {
   SHOW_LOADER,
   HIDE_LOADER,
   SHOW_ALERT,
-  HIDE_ALERT
+  HIDE_ALERT,
+  REQUEST_POSTS
 } from "./types";
 
 export const createPost = post => ({ type: CREATE_POST, payload: post });
@@ -24,7 +25,11 @@ export const showAlert = text => {
 };
 
 export const fetchedPosts = () => {
-  return async dispatch => {
+  return {
+    type: REQUEST_POSTS
+  }
+  
+  /* return async dispatch => {
     try {
       dispatch(showLoader());
       const response = await fetch(
@@ -37,5 +42,5 @@ export const fetchedPosts = () => {
       dispatch(showAlert("Что то пошло не так!"));
       dispatch(hideLoader());
     }
-  };
+  }; */
 };
